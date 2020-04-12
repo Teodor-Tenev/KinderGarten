@@ -13,7 +13,7 @@ namespace KinderGarden
         {
             List<KinderGarden> allGardens = new List<KinderGarden>()
             {
-                  new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4760", distanceFromHome: 2, approxTimeInMinutes: 5),
+                  //new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4760", distanceFromHome: 2, approxTimeInMinutes: 5),
                   new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4752", distanceFromHome: 2, approxTimeInMinutes: 5),
                   new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4723", distanceFromHome: 2, approxTimeInMinutes: 5),
                   new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4745", distanceFromHome: 2, approxTimeInMinutes: 5),
