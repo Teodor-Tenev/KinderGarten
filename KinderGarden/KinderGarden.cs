@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace KinderGarden
 {
@@ -27,6 +26,7 @@ namespace KinderGarden
             double points = Children.FirstOrDefault(e => e.ID == ID).Points;
             return CalcChance(points, ID);
         }
+
         public double CalcChance(double points, int ID)
         {
             double freeSlots = FreeSlots;
@@ -83,63 +83,10 @@ namespace KinderGarden
             return Chance;
         }
 
-        //pu}blic bool IsGoingIn(int ID)
-        //{
-        //    var topPoints = Children.Select(e => e.Points).Distinct().ToList();
-        //    var child = Children.FirstOrDefault(e => e.ID == ID);
-        //    var topChildren = Children.Where(e => e.Points == topPoints[0]).ToList();
-
-        //    if (topChildren.Count < FreeSlots && topChildren.Contains(child)) 
-        //    {
-
-        //    }
-
-        //    if (Children.Count(e => e.Points == topPoints[0]) <= FreeSlots && child.Points == topPoints[0])
-        //    {
-        //        return yes;
-        //    }
-        //}
-
-        //public double CalculateRealChance()
-        //{
-        //    double freeSlots = FreeSlots;
-        //    double realRivals = 0;
-        //    foreach (var child in Children)
-        //    {
-        //        if (child.Points > 12 && child.Wish == 3)
-        //        {
-        //            freeSlots--;
-        //        }
-        //        else if (child.Points == 12 && child.Wish == 3 && child.ID != 19005022)
-        //        {
-        //            realRivals++;
-        //        }
-        //        else if (child.Points == 12 && child.Wish == 2)
-        //        {
-        //            foreach (var garden in child.Gardens.Where(e => e.Name != Name))
-        //            {
-        //                garden.cal
-        //            }
-        //        }
-
-        //        if (freeSlots == 0)
-        //        {
-        //            return 0;
-        //        }
-        //    }
-        //    return Math.Round(freeSlots / realRivals * 100, 2);
-        //}
-
         public void PrintInfo(double points, int ID)
         {
             Console.WriteLine($"\"{Name}\" има свободни {FreeSlots} места. Шанс да влезе: {CalcChance(points, ID)}%");
-            //for (int i = 1; i <= Children.Count; i++)
-            //{
-            //    var child = Children[i-1];
-            //    Console.WriteLine($"{i}. {child.Name} {child.ID} {child.Points} {child.Wish}");
-            //}
             Console.WriteLine(new String('=', 12));
-
         }
     }
 }
