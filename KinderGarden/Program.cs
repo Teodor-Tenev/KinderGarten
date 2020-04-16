@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace KinderGarden
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
             List<KinderGarden> allGardens = new List<KinderGarden>()
             {
                   new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4760", distanceFromHome: 2, approxTimeInMinutes: 5),
@@ -55,7 +54,7 @@ namespace KinderGarden
             }
         }
 
-        static void PopuleEmptyFields(KinderGarden kinderGarten)
+        private static void PopuleEmptyFields(KinderGarden kinderGarten)
         {
             using (WebClient client = new WebClient()) // WebClient class inherits IDisposable
             {
