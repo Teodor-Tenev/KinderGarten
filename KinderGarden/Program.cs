@@ -11,6 +11,7 @@ namespace KinderGarden
     {
         static void Main(string[] args)
         {
+
             List<KinderGarden> allGardens = new List<KinderGarden>()
             {
                   new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4760", distanceFromHome: 2, approxTimeInMinutes: 5),
@@ -31,14 +32,26 @@ namespace KinderGarden
                   new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4872", distanceFromHome: 2, approxTimeInMinutes: 5),
                   new KinderGarden(@"https://kg.sofia.bg/isodz/stat-rating/waiting/4826", distanceFromHome: 2, approxTimeInMinutes: 5),
             };
-            Parallel.ForEach<KinderGarden>(allGardens, garden =>
+            Parallel.ForEach(allGardens, garden =>
             {
                 PopuleEmptyFields(garden);
             });
 
+            foreach (var garden in allGardens)
+            {
+                foreach (var child in garden.Children)
+                {
+                    if (child.Gardens == null || child.Gardens.Count == 0)
+                    {
+                        child.Gardens = allGardens.Where(e => e.Children.FirstOrDefault(e => e.ID == child.ID) != null).ToList();
+                    }
+                }
+            }
+
+            allGardens = allGardens.OrderByDescending(e => e.CalcChance(12, 19005022)).ToList();
             foreach (var item in allGardens)
             {
-                item.PrintInfo();
+                item.PrintInfo(12, 19005022);
             }
         }
 
