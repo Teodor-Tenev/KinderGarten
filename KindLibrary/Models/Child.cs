@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-namespace KinderGarden
+namespace KindLibrary
 {
     public class Child
     {
-        public Child(string name, int iD, double points, int wish)
+        public Child(string name, int iD, double points, int wish, int wishOrder)
         {
             Name = name;
             ID = iD;
             Points = points;
             Wish = wish;
+            WishOrder = wishOrder;
         }
 
         public string Name { get; set; }
@@ -22,7 +24,9 @@ namespace KinderGarden
         /// 1 - Трето желание
         /// </summary>
         public int Wish { get; set; }
+        public int WishOrder { get; set; }
 
         public List<KinderGarden> Gardens { get; set; }
+
     }
 }

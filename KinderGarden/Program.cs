@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using KindLibrary;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace KinderGarden
 
         private static void Main(string[] args)
         {
-            List<KinderGarden> allGardens = DataLayer.Gardens;
+            List<KindLibrary.KinderGarden> allGardens = DataLayer.Gardens;
             Parallel.ForEach(allGardens, garden =>
             {
                 KinderGardenPopulator.PopuleEmptyFields(garden);
